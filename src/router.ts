@@ -26,7 +26,7 @@ const routes = [
   },
 ];
 
-const BASE_PATH = "";
+const BASE_PATH = "/D-piedra-papel-tijera";
 function isGitHubPages() {
   return location.host.includes("github.io");
 }
@@ -38,9 +38,22 @@ export function initRouter(container: Element) {
   }
   function handleRoute(route) {
     console.log(" el handleRoute recibio una ruta", route);
-    const newRoute = isGitHubPages() ? route.replace(BASE_PATH, "") : route;
+    let newRoute = route;
+    if (isGitHubPages()) {
+      if (route.startsWith(BASE_PATH)) {
+        newRoute = route.slice(BASE_PATH.length);
+        if (!newRoute.startsWith("/")) {
+          newRoute = "/" + newRoute;
+        }
+      } else {
+        newRoute = "/";
+      }
+    }
+
+    console.log("newRoute ajustada:", newRoute);
 
     for (const r of routes) {
+      console.log("Verificando ruta:", r.path, "con", newRoute);
       if (r.path.test(newRoute)) {
         const el = r.component({ goTo: goTo });
         if (container.firstChild) {
@@ -48,8 +61,11 @@ export function initRouter(container: Element) {
         }
 
         container.appendChild(el);
+        return;
       }
     }
+    console.log("Ruta no encontrada, redirigiendo a /welcome");
+    goTo("/welcome");
   }
   if (location.pathname == "/") {
     goTo("/welcome");
