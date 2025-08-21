@@ -1,0 +1,13 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    height: 100vh;
+    background-image: url("./img/fondo.svg");
+    font-family: "Odibee Sans"
+}
+.root{
+    margin: 0;
+    height: 100vh;
+}

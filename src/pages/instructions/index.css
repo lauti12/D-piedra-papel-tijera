@@ -1,0 +1,22 @@
+.instructions-page{
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.body{
+    margin-top: 129px;
+}
+ @media (min-width: 960px) {
+      .body{
+        margin-top: 148px;
+      }
+    }  
+.instructions-button{
+    text-align: center;
+    margin-top: 115px;
+}
+.instructions-choices{
+    margin-top: auto;
+}

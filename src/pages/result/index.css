@@ -1,0 +1,19 @@
+.result-page{
+    background-color: var(--page-background);;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+.versus{
+    position: absolute;
+    z-index: -1; 
+}
+.result-cont{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
